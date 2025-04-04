@@ -1,0 +1,31 @@
+{
+  "name": "tonys-sepolia-faucet",
+  "version": "1.0.0",
+  "description": "Tony's Sepolia Faucet - An open source Sepolia faucet with a daily free dripping.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonynagyeurope/tonys-sepolia-faucet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tonynagyeurope/tonys-sepolia-faucet/issues"
+  },
+  "homepage": "https://github.com/tonynagyeurope/tonys-sepolia-faucet#readme",
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.2.0",
+    "hardhat": "^2.22.19"
+  },
+  "devDependencies": {
+    "hardhat-deploy": "^0.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
