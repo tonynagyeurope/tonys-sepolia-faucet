@@ -20,7 +20,7 @@
   "homepage": "https://github.com/tonynagyeurope/tonys-sepolia-faucet#readme",
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "@openzeppelin/contracts": "^5.2.0",
+    "@openzeppelin/contracts": "^4.9.0",
     "hardhat": "^2.22.19"
   },
   "devDependencies": {
