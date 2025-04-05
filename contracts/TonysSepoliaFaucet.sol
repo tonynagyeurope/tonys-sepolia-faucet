@@ -12,10 +12,10 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
  * @dev Deployed on the Sepolia testnet. Inherits from OpenZeppelin's Ownable and ReentrancyGuard.
  */
 contract TonysSepoliaFaucet is Ownable, ReentrancyGuard {
-    /// @notice Amount of ETH distributed per withdrawal (0.001 ETH).
+    /// @notice Amount of ETH distributed per withdrawal AMOUNT (e.g. 0.001 ETH).
     uint256 public constant AMOUNT = 0.001 ether;
 
-    /// @notice Maximum total ETH an address can withdraw (0.01 ETH).
+    /// @notice Maximum total ETH an address can withdraw 10 x AMOUNT (e.g. 0.01 ETH).
     uint256 public constant CAP = 0.01 ether;
 
     /// @notice Cooldown period between withdrawals (24 hours).
@@ -92,7 +92,7 @@ contract TonysSepoliaFaucet is Ownable, ReentrancyGuard {
         _;
     }
 
-    /// @notice Allows a user to withdraw 0.001 ETH, subject to cooldown, cap, and pause checks.
+    /// @notice Allows a user to withdraw AMOUNT (e.g. 0.001) ETH, subject to cooldown, cap, and pause checks.
     /// @dev Reverts if the contract balance is too low, the cooldown hasn't expired, the cap is exceeded, or withdrawals are paused.
     function withdraw() external nonReentrant whenNotPaused {
         if (AMOUNT > address(this).balance) revert LowBalance();
