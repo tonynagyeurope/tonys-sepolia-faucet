@@ -41,6 +41,9 @@ contract TonysSepoliaFaucet is Ownable, ReentrancyGuard {
     /// @notice Emitted when withdrawals are unpaused.
     event Unpaused();
 
+    /// @notice Emitted when received native funds.
+    event Received(address indexed sender, uint256 amount);
+
     error LowBalance();
     error TransferFailed();
     error CooldownNotExpired();
@@ -103,5 +106,10 @@ contract TonysSepoliaFaucet is Ownable, ReentrancyGuard {
         emit Withdrawal(msg.sender, AMOUNT);
         (bool success, ) = msg.sender.call{value: AMOUNT}("");
         if (!success) revert TransferFailed();
+    }
+
+    /// @dev Accepts natvie Sepolia ETH.
+    receive() external payable {
+        emit Received(msg.sender, msg.value);        
     }
 }
