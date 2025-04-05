@@ -19,12 +19,14 @@
   },
   "homepage": "https://github.com/tonynagyeurope/tonys-sepolia-faucet#readme",
   "dependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@openzeppelin/contracts": "^4.9.0",
-    "hardhat": "^2.22.19"
+    "@openzeppelin/hardhat-upgrades": "^3.9.0",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
-    "hardhat-deploy": "^0.14.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.19",
+    "hardhat-deploy": "^1.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }
