@@ -94,17 +94,18 @@ contract TonysSepoliaFaucet is Ownable, ReentrancyGuard {
         _;
     }
 
-    /// @notice Allows a user to withdraw AMOUNT (e.g. 0.001) ETH, subject to cooldown, cap, and pause checks.
+    /// @notice Allows a user to withdraw AMOUNT (e.g., 0.001 ETH) to a specified recipient, subject to cooldown, cap, and pause checks.
+    /// @param recipient The address to receive the withdrawn ETH.
     /// @dev Reverts if the contract balance is too low, the cooldown hasn't expired, the cap is exceeded, or withdrawals are paused.
-    function withdraw() external nonReentrant whenNotPaused {
+    function withdraw(address recipient) external nonReentrant whenNotPaused {
         if (AMOUNT > address(this).balance) revert LowBalance();
-        if (block.timestamp < lastWithdrawalTime[msg.sender] + COOLDOWN) revert CooldownNotExpired();
-        if (totalAmountWithdrawn[msg.sender] + AMOUNT > CAP) revert TotalWithdrawalReached();
+        if (block.timestamp < lastWithdrawalTime[recipient] + COOLDOWN) revert CooldownNotExpired();
+        if (totalAmountWithdrawn[recipient] + AMOUNT > CAP) revert TotalWithdrawalReached();
 
-        totalAmountWithdrawn[msg.sender] += AMOUNT;
-        lastWithdrawalTime[msg.sender] = block.timestamp;
-        emit Withdrawal(msg.sender, AMOUNT);
-        (bool success, ) = msg.sender.call{value: AMOUNT}("");
+        totalAmountWithdrawn[recipient] += AMOUNT;
+        lastWithdrawalTime[recipient] = block.timestamp;
+        emit Withdrawal(recipient, AMOUNT);
+        (bool success, ) = recipient.call{value: AMOUNT}("");
         if (!success) revert TransferFailed();
     }
 

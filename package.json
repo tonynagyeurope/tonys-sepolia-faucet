@@ -21,7 +21,11 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.0",
     "@openzeppelin/hardhat-upgrades": "^3.9.0",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.5",
+    "typechain": "^8.3.2",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
