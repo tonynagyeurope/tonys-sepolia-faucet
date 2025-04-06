@@ -14,6 +14,9 @@ const CONTRACT_DEPLOYER_PRIVATE_KEY = process.env.CONTRACT_DEPLOYER_PRIVATE_KEY 
 
 const config: HardhatUserConfig = {
   solidity: '0.8.28',
+  gasReporter: {
+    enabled: process.env.REPORT_GAS === "true" // activating with REPORT_GAS=true
+  },  
   networks: {
     sepolia: {
       url: RPC_URL,
@@ -31,16 +34,6 @@ const config: HardhatUserConfig = {
     localhost: {
       url: 'http://127.0.0.1:8545',
     },
-    // Define a dedicated "coverage" network for solidity-coverage with pre-funded accounts.
-    coverage: {
-      url: "http://127.0.0.1:8555",
-      chainId: 1337,
-      accounts: {
-        mnemonic: "test test test test test test test test test test test junk",
-        count: 10,
-        accountsBalance: "10000000000000000000000"
-      }
-    }
   },
   namedAccounts: {
     deployer: {

@@ -36,7 +36,7 @@ jobs:
             RPC_URL: ${{ secrets.RPC_URL }}
             CONTRACT_DEPLOYER_PRIVATE_KEY: ${{ secrets.CONTRACT_DEPLOYER_PRIVATE_KEY }}
             DEPLOYED_SEPOLIA_ADDRESS: ${{ secrets.DEPLOYED_SEPOLIA_ADDRESS }}    
-        run: npx hardhat test
+        run: REPORT_GAS=true npx hardhat test
 
       - name: Upload Gas Report (click to download)
         uses: actions/upload-artifact@v4

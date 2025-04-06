@@ -18,13 +18,7 @@ describe('TonysSepoliaFaucet contract deployment and function tests started.', a
   
   // Create a wallet instance and connect it to the current provider
   const provider = ethers.provider;
-  let deployer: any;
-
-  if (process.env.COVERAGE) {
-    // When running coverage, use the default funded accounts.
-    [deployer] = await ethers.getSigners();
-  } else {
-    deployer = new Wallet(deployerPrivateKey, provider);  
+  const deployer = new Wallet(deployerPrivateKey, provider);  
 
   before(async function () {
     // Create the contract factory with the specified signer
@@ -111,7 +105,5 @@ describe('TonysSepoliaFaucet contract deployment and function tests started.', a
     }   
 
   });
-
-}
 
 });
