@@ -21,16 +21,18 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.0",
     "@openzeppelin/hardhat-upgrades": "^3.9.0",
+    "@typechain/ethers-v6": "^0.5.1",
     "dotenv": "^16.4.7",
     "ethers": "^6.13.5",
-    "typechain": "^8.3.2",
-    "@typechain/ethers-v6": "^0.5.1",
-    "@typechain/hardhat": "^9.1.0"
+    "solidity-coverage": "^0.8.14",
+    "typechain": "^8.3.2"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@typechain/hardhat": "^9.1.0",
     "hardhat": "^2.22.19",
     "hardhat-deploy": "^1.0.1",
+    "hardhat-gas-reporter": "^1.0.8",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   }

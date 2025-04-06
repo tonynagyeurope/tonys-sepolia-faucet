@@ -1,0 +1,28 @@
+name: Format Code
+on:
+  push:
+    paths:
+      - '**/*.sol'
+      - '**/*.ts'
+      - '**/*.tsx'
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # adding permissions for the prettier auto-format to push changes    
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}        
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install  # Installs the dependencies in the package.json
+      - run: npx prettier --write "**/*.{sol,ts,tsx}"  # Formats both types (Solidity & TypeScript)
+      - name: Auto-format and Push
+        run: |
+          git config --global user.email "tony.nagy.europe@gmail.com"
+          git config --global user.name "Tony Nagy"
+          git diff --exit-code || (git add . && git commit -m "Auto-format with Prettier" && git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  

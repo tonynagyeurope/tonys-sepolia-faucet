@@ -1,0 +1,53 @@
+name: CI - Build
+
+# We run this test only for push events
+on:
+  push:
+    branches: [ main ]
+
+# Setup jobs
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Download the faucet code
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}         
+
+      # 2. Node.js setup
+      - name: Node.js setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Hardhat works fine with this version
+
+      # 3. Install the dependecies
+      - name: Installing dependencies
+        run: npm install
+
+      # 4. Compile the project
+      - name: Compiling project
+        run: npx hardhat compile
+
+      # 5. Testing the contract functions
+      - name: Testing contract functions
+        env:
+            RPC_URL: ${{ secrets.RPC_URL }}
+            CONTRACT_DEPLOYER_PRIVATE_KEY: ${{ secrets.CONTRACT_DEPLOYER_PRIVATE_KEY }}
+            DEPLOYED_SEPOLIA_ADDRESS: ${{ secrets.DEPLOYED_SEPOLIA_ADDRESS }}    
+        run: npx hardhat test
+
+      - name: Upload Gas Report (click to download)
+        uses: actions/upload-artifact@v4
+        with:
+          name: gas-report
+          path: gas-report.txt
+
+      # 6. Saving the artifacts
+      - name: Saving artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: contract-artifacts
+          path: artifacts/
+        if: success()
