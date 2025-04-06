@@ -46,7 +46,7 @@ https://eth-sepolia.g.alchemy.com/v2/gb-4LtVG_zt7ICDqp7AuPOuYdXGjRwtw
 
 ## Complex test with gas report screen:
 
-screens/hardhat-test-with-gas-report.jpg
+![hardhat-test-with-gas-report](https://github.com/user-attachments/assets/ece99a67-3ec4-4a18-9632-9457d4f2d35e)
 
 ## Gas Usage
 
