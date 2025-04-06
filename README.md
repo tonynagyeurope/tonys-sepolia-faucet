@@ -80,3 +80,11 @@ REPORT_GAS=true npx hardhat test
 
 MIT – feel free to use, extend or fork this faucet in your own Web3 projects.
 
+## Contact
+
+For further information or any questions, please contact:
+````
+    Developer: Tony Nagy
+    Email: info@tonynagy.io
+    Website: www.tonynagy.io
+````
