@@ -6,6 +6,7 @@ Tony's Sepolia Faucet - An open source Sepolia faucet with a daily free dripping
 ![Formatting](https://github.com/tonynagyeurope/tonys-sepolia-faucet/actions/workflows/format.yml/badge.svg)
 ![Etherscan Verified](https://img.shields.io/badge/etherscan-verified-blue)
 ![Hardhat](https://img.shields.io/badge/built%20with-hardhat-yellow)
+![Gas Report](https://img.shields.io/badge/gas%20report-CI%20generated-blue)
 ![License](https://img.shields.io/github/license/tonynagyeurope/tonys-sepolia-faucet)
 
 ## Project Description:
@@ -26,7 +27,7 @@ I use my own hardware to mine Sepolia ETH from the faucet for giveaways.
 
 ## Deployment Instructions:
 
-1. Clone the repository: `git clone https://github.com/yourusername/tonys-sepolia-faucet.git`
+1. Clone the repository: `git clone https://github.com/tonynagyeurope/tonys-sepolia-faucet.git`
 2. Install dependencies: `npm install`
 3. Configure your Sepolia network in `hardhat.config.ts`.
 4. Deploy: `npx hardhat run scripts/deploy.ts --network sepolia`
