@@ -7,7 +7,7 @@ Tony's Sepolia Faucet - An open source Sepolia faucet with a daily free dripping
 ![Etherscan Verified](https://img.shields.io/badge/etherscan-verified-blue)
 ![Hardhat](https://img.shields.io/badge/built%20with-hardhat-yellow)
 ![Gas Report](https://img.shields.io/badge/gas%20report-CI%20generated-blue)
-![License](https://img.shields.io/github/license/tonynagyeurope/tonys-sepolia-faucet)
+![License](https://img.shields.io/github/license/tonynagyeurope/tonys-sepolia-faucet?cacheBust=1)
 
 ## Project Description:
 
