@@ -86,9 +86,11 @@ describe('TonysSepoliaFaucet contract deployment and function tests started.', a
       }       
     }
 
+    // We unpause the contact...
     const txUnpause = await contract.unpause();
     await txUnpause.wait();    
 
+    // ...so we can try another withdraw and it should not throw a WithdrawalPaused custom error.
     try {
       const txWithdrawUnaused = await contract.withdraw(deployer.address); // We try to withdraw 0.001 ETH again
       await txWithdrawUnaused.wait();    
